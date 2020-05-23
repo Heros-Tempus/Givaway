@@ -2,7 +2,6 @@ import random
 class NotPositiveError(UserWarning):
     pass
 print("First enter the number of entrants\nThen enter the names of the entrants one at a time\nThen enter the number of prizes\nThen enter the prizes one at a time")
-entrantNames = []
 while True:
     try:
         entrantnum = int(input("Enter the number of entrants\n"))
@@ -16,8 +15,9 @@ while True:
         continue
     else:
         break
-for i in range(0, entrantnum):
-    entrantNames.append(input("Enter the name of entrant number " + str(i+1) + "\n"))
+entrantDelimiter = input("Enter the name delimiter (what character(s) divides the names)\n")
+entrantNames = input("Enter the entrant names (all on the same line, divided by the delimiter you previously specified)\n")
+entrantList = list(entrantNames.split(entrantDelimiter))
 prizeNames = []
 while True:
     try:
@@ -32,13 +32,14 @@ while True:
         continue
     else:
         break
-for i in range(0, prizenum):
-    prizeNames.append(input("Enter the name of prize number " + str(i+1) + "\n"))
-if len(entrantNames) > len(prizeNames):
-    x = len(entrantNames) - len(prizeNames)
+prizeDelimiter = input("Enter the name delimiter (what character(s) divides the prizes)\n")
+prizeNames = input("Enter the prize names (all on the same line, divided by the delimiter you previously specified)\n")
+prizeList = list(prizeNames.split(prizeDelimiter))
+if len(entrantLize) > len(prizeLizt):
+    x = len(entrantList) - len(prizeList)
     for i in range(0, x):
-        prizeNames.append("Empty Prize")
-random.shuffle(entrantNames)
-random.shuffle(prizeNames)
+        prizeList.append("Empty Prize")
+random.shuffle(entrantList)
+random.shuffle(prizeList)
 for i in range(0, entrantnum):
-    print(entrantNames[i]+" has won " + prizeNames[i] + "\n")
+    print(entrantList[i]+" has won " + prizeList[i] + "\n")

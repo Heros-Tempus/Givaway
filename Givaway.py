@@ -10,6 +10,10 @@ if len(entrantList) > len(prizeList):
     x = len(entrantList) - len(prizeList)
     for i in range(0, x):
         prizeList.append("Empty Prize")
+elif len(entrantList) < len(prizeList):
+    x = len(prizeList) - len(entrantList)
+    for i in range(0, x):
+        entrantList.append("Empty Name")
 random.shuffle(entrantList)
 random.shuffle(prizeList)
 for i in range(0, entrantnum):
